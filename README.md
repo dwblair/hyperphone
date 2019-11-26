@@ -43,4 +43,20 @@ hyperpipe ./r1.db f84fd19e0e76a1001ac250a4720bda1202cf6fda33683507c02ae9451a7457
 
 This should take the live-streamed audio being recorded in "arecord" on the  **sender** side, and pipe it into "aplay" on the receiver side, playing it on the default audio output of your receiver computer.
 
+## Broadcasting pre-recorded audio
+
+As an alternative, one can first record an audio file, e.g. with:
+
+```
+arecord ./test.wav
+```
+
+And then 'broadcast' that audio file, like:
+
+```
+cat a2.wav | hyperpipe ./h6.db -t
+```
+
+This will output a hyperkey just as in the 'live send' mode above, and can be received using the same 'receiver' side command.
+
 
